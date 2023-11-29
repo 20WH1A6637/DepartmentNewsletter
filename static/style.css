@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;    
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: aliceblue;
+}  
+
+h2 { 
+    font-size: 46px;
+    line-height: 54px;
+    color: aliceblue;
+}
+
+h3{
+    font-size: 40px;
+    line-height: 50px;
+    color: black;
+}
+
+h4 {  
+    font-size: 20px;
+    color: aliceblue;
+}
+
+h5{
+    font-size: 20px;
+    color: black;
+}
+        
+h6 { 
+    font-weight: 700;
+    font-size: 12px; 
+}
+
+h7 {
+    font-weight: 700;
+    font-size: 20px;
+}
+        
+p {
+    font-size: 16px;
+    color: aqua;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1 { 
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin:-40px 0;
+}
+.signup-form {
+    display: flex;
+}
+.signup-form input{
+    width: 1000px;
+}
+
+
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+    
+body {  
+    width: 100%;
+}
+
+/* Header Start */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: darkblue;
+    box-shadow: 0 5px 15px rgba(39, 114, 12, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#header .logo{
+    height: 50;
+    width: 50;
+}
+
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding:  0 12px;
+    position: relative;
+}
+
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: aliceblue;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover, 
+#navbar li a.active{
+    color: gold;
+}
+
+/* Pseudo classes after and before*/
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: tomato;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+
+/* Home page */
+#hero{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/static/img/background_1.png");
+    min-height: 140vh;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: top 25% right 0%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: auto;
+    overflow-y: scroll;
+}
+
+#hero .container{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+#hero h4{
+    padding-bottom: 15px;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    margin:  20px;
+    padding: 20px;
+}
+
+#hero h5{
+    padding-bottom: 15px;
+    background-color: wheat;
+    color: white;
+    justify-content: center;
+    margin:  20px;
+    padding: 20px;
+}
+
+#hero h1{
+    color: yellow;
+    background-color: royalblue;
+    justify-content: center;
+    margin:  20px;
+    padding: 20px;
+}
+
+#hero button{
+    background-color: white;
+    color: darkblue;
+    border: 2px solid;
+    border-radius: 20;
+    padding: 20px;
+    margin: 20px;
+    justify-content: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 2000;
+    font-size: 30px;
+}
+
+#hero button:hover{
+    background-color: white;
+    color:darkgreen;
+}
+
+/* CSS for the content containers */
+.content-container{
+    background: repeat-y;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    float: left;
+    width: 100%; /* Adjust the width as needed for your layout */
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+    font-size: large;
+}
+.content-container p{
+    font-family: 'Spartan', sans-serif;
+    font-size: smaller;
+    font-weight: 500;
+}
+
+
+
+.content-container p{
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+/* Clear the float to prevent layout issues */
+.clear {
+    clear: both;
+}
+
+/* Apply responsive design for smaller screens */
+@media (max-width: 100px) {
+    .content-container {
+        width: 100%;
+    }
+}
+/* @media (max-height: 100px) {
+    .content-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+} */
+
+
+/* CSS for the form */
+#content-form {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+
+#content-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#content-form input[type="text"],
+#content-form select,
+#content-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#content-form input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+#content-form1 {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+#content-form1 label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#content-form1 input[type="text"],
+#content-form1 select,
+#content-form1 textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#content-form1 input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.poster {
+    width: 600px;
+    height: auto;
+}
+
+#newsletter{
+    display:flex ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: darkblue;
+}
+
+#newsletter h4{
+    font-size: 24px;
+    font-weight: 700;
+    color: aliceblue;
+    background-color: darkblue;
+}
+
+#newsletter p{
+    font-size: 14px;
+    font-weight: 600;
+    color: cornsilk;
+}
+
+#newsletter p span{
+    color: gold
+}
+
+#newsletter .form{
+    display: flex;
+    width: 40%;
+}
+
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#newsletter button{
+    background-color: darkmagenta;
+    color: gold;
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#newsletter .textalert{
+    color: white;
+    text-align: right;
+    font-size: medium;
+    font-weight: 300;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    background-color: wheat;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer .logo{
+    margin-bottom: 30px;
+}
+
+footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+    color:darkblue;
+}
+
+footer p{
+    font-size: 13px;
+    color:darkblue;
+    margin: 0 0 8px 0;
+}
+
+footer a{
+    font-size: 13px;
+    text-decoration: none;
+    color: darkblue;
+    margin-bottom: 10px;
+}
+
+footer .follow{
+    margin-top: 20px;
+}
+
+footer .follow i{
+    color: darkblue;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .install .row img{
+    border: 1px solid darkblue;
+    border-radius: 6px;
+}
+
+footer .install img{
+    margin: 10px 0px 15px 0px;
+}
+
+footer .follow i:hover,
+footer a:hover{
+    color: magenta;
+}
+
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
+
+
