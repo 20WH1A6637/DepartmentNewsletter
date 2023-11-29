@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI&ML NEWSLETTER AND REPORT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="text/stylesheet" src="script.js">
+</head>
+<body>
+    <section id = "header">
+        <a href="#"><img src = "static/img/logo.png" class="logo" alt = ""></a>
+
+            <div>
+                <ul id = "navbar">
+                    <li><a href = "{{url_for('index')}}">Home</a></li>
+                    <li><a href = "{{url_for('hod')}}">Message From HOD</a></li>
+                    <li><a href = "{{ url_for('faculty') }}">Faculty</a></li>
+                    <li><a href = "{{ url_for('studentAcheivements')}}">Student Acheivements</a> </li>
+                    <li><a href = "{{ url_for('events') }}">Events</a></li>
+                    <li><a href = "{{ url_for('placement') }}">Placement Info</a></li>
+                    <li><a href = "{{ url_for('weekly_update') }}" class = "active">Weekly Updates</a></li>
+                </ul>
+            </div>
+    </section>
+
+    <section id="hero">
+        <div class="container">
+            {% for entry in content %}
+            <div class="content-container">
+                <h7>{{ entry[4] }}</h7>
+                <p><b>Contributor:</b> {{ entry[1] }}</p>
+                <p>{{ entry[5]|safe }}</p>
+                <img src="{{ url_for('static', filename='uploads/' + entry[6]) }}" alt="{{ entry[4] }} Image">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <footer class = "section-p1">
+        <div class="col">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> plot-1368 Nizampet Road, Hyderabad</p>
+            <p><strong>Phone:</strong> (+91) 4856 865 866 </p>
+            <p><strong>Hours:</strong> 10:00 - 16:00 (Mon - Fri)</p>
+        </div>
+        
+        <div class = "follow">
+          <h4>Follow Us</h4>
+          <div class = "icon">
+              <i class = "fab fa-facebook-f"></i>
+              <i class = "fab fa-twitter"></i>
+              <i class = "fab fa-instagram"></i>
+              <i class = "fab fa-pinterest-p"></i>
+              <i class = "fab fa-youtube"></i>
+          </div>
+      </div>
+
+        <div class="col install">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+    </footer>
+</body>
+</html>

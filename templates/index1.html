@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI&ML NEWSLETTER AND REPORT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="text/stylesheet" src="script.js">
+    <script>
+        function toggleForm() {
+            var addButton = document.getElementById("add-content-button");
+            var contentForm = document.getElementById("content-form");
+            var selectedPage = document.getElementById("page-dropdown").value; // Get the selected page
+
+            if (addButton.style.display === "none") {
+                addButton.style.display = "block";
+                contentForm.style.display = "none";
+            } else {
+                addButton.style.display = "none";
+                contentForm.style.display = "block";
+                // Set the selected page in the hidden input field
+                document.getElementById("selected-page").value = selectedPage;
+            }
+        }
+        // function toggleForm1() {
+        //     var addWeeklyButton = document.getElementById("add-weekly-content-button");
+        //     var weeklyForm = document.getElementById("content-form1");
+        //     var selectedPage = document.getElementById("page-dropdown").value;
+
+        //     if (addWeeklyButton.style.display === "none") {
+        //         addWeeklyButton.style.display = "block";
+        //         weeklyForm.style.display = "none";
+        //     } else {
+        //         addWeeklyButton.style.display = "none";
+        //         weeklyForm.style.display = "block";
+        //         // Set the selected page in the hidden input field
+        //         document.getElementById("selected-page").value = selectedPage;
+        //     }
+        // }
+    </script>
+</head>
+<body>
+    <section id = "header">
+            <a href="#"><img src = "static/img/logo.png" class="logo" alt = ""></a>
+
+            <div>
+                <ul id = "navbar">
+                    <li><a href = "{{url_for('index')}}" class = "active" >Home</a></li>
+                    <li><a href = "{{url_for('hod')}}">Message From HOD</a></li>
+                    <li><a href = "{{ url_for('faculty') }}">Faculty</a></li>
+                    <li><a href = "{{ url_for('studentAcheivements')}}">Student Acheivements</a> </li>
+                    <li><a href = "{{ url_for('events') }}">Events</a></li>
+                    <li><a href = "{{ url_for('placement') }}">Placement Info</a></li>
+                    <li><a href = "{{ url_for('weekly_update') }}">Weekly Updates</a></li>
+                    <li>{% if 'email' in session %}
+                        <span style= "text-decoration: none; font-size: 16px;font-weight: 600;color: aliceblue;transition: 0.3s ease;">{{ session['email'][:10] }}</span>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% endif %}
+                    </li>
+                </ul>
+            </div>
+    </section>
+
+    <section id="hero">
+        <!-- <div>
+            <h4>Contribute to our Weekly News-Letter<br>
+                <br>
+                <button id="add-content-button" onclick="toggleForm()"> <b>Add Latest Content </b></button>
+            </h4>
+        </div> -->
+            {% if email == 'thopuriharshitha@gmail.com' or email == '20wh1a6637@bvrithyderabad.edu.in' %}
+                <h4>Contribute to our Weekly News-Letter</h4>
+                <button id="add-content-button" onclick="toggleForm()"> <b>Add Latest Content </b></button>
+                <!-- <button id="add-weekly-content-button" onclick="toggleForm1()"> <b>Add Weekly Content </b></button> -->
+            {% else %}
+                <h4><img src = "static/img/poster.png" alt = "poster" class="poster"><br>
+                Contact ---ADMIN--- if you want to add latest content</h4>
+            {% endif %}
+        
+
+        <form id="content-form" style="display: none; background-color: cornsilk;" action="{{ url_for('submit_content') }}" method="POST" enctype="multipart/form-data">
+            <!-- Your form content here -->
+            <label for="contributor-name">Contributor Name:</label>
+            <input type="text" id="contributor-name" name="contributor-name" required><br>
+            <label for="semester-id">Semester ID:</label>
+            <input type="text" id="semester-id" name="semester-id" required><br>
+            <label for="page-dropdown">Page:</label>
+            <select id="page-dropdown" name="page-dropdown">
+                <option value="Message from hod">Message from HOD</option>
+                <option value="faculty">Faculty</option>
+                <option value="student-achievements">Student Achievements</option>
+                <option value="events">Events</option>
+                <option value="placement-info">Placement Info</option>
+            </select><br>
+            <label for="content-title">Title:</label>
+            <input type="text" id="content-title" name="content-title" required><br>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" required></textarea><br>
+            <input type="hidden" id="selected-page" name="selected-page" value="">
+            <label for="uploaded-image">Upload related images:</label>
+            <input type="file" id="uploaded-image" name="uploaded-image">
+
+            <input type="hidden" id="user-email" name="user-email" value="{{ email }}">
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <input style="background-color: darkmagenta; color: gold; font-weight: 500; height: 40px; width: 120px; font-size: 18px; white-space: nowrap; border-top-left-radius: 0; border-bottom-left-radius: 0; border-radius: 15px;" type="submit" value="Submit">
+            </div>
+        </form>
+
+
+
+
+        <!-- <form id="content-form1" style="display: none; background-color: cornsilk;" action="{{ url_for('submit_content') }}" method="POST" enctype="multipart/form-data">
+            <label for="contributor-name">Contributor Name:</label>
+            <input type="text" id="contributor-name" name="contributor-name" required><br>
+            <label for="semester-id">Semester ID:</label>
+            <input type="text" id="semester-id" name="semester-id" required><br>
+            <label for="page-dropdown">Page:</label>
+            <select id="page-dropdown" name="page-dropdown">
+                <option value="weekly_upadate">Weekly Update</option>
+            </select><br>
+            <label for="content-title">Title:</label>
+            <input type="text" id="content-title" name="content-title" required><br>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" required></textarea><br>
+            <input type="hidden" id="selected-page" name="selected-page" value="">
+            <label for="uploaded-image">Upload related images:</label>
+            <input type="file" id="uploaded-image" name="uploaded-image">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <input style="background-color: darkmagenta; color: gold; font-weight: 500; height: 40px; width: 120px; font-size: 18px; white-space: nowrap; border-top-left-radius: 0; border-bottom-left-radius: 0; border-radius: 15px;" type="submit" value="Submit">
+            </div>
+        </form> -->
+
+        
+
+        <form id="content-form" style="background-color: cornsilk;" action="{{ url_for('download') }}" method="post">
+            <label for="pdf_select">Select a PDF to download:</label>
+            <select id="pdf_select" name="pdf_choice">
+                <option value="22-1-2_content.pdf">22-1-2_content.pdf</option>
+                <option value="22-2-1_content.pdf">22-2-1_content.pdf</option>
+                <option value="22-2-2_content.pdf">22-2-2_content.pdf</option>
+                <option value="22-3-1_content.pdf">22-3-1_content.pdf</option>
+            </select>
+            <br>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <input style="background-color: darkmagenta; color: gold; font-weight: 500; height: 40px; width: 240px; font-size: 15px; white-space: nowrap; border-top-left-radius: 0; border-bottom-left-radius: 0; border-radius: 15px;"  type="submit" value="Download Selected PDF">
+            </div>
+        </form>
+    </section>
+
+    <section id = "newsletter" class = "section-p1 section-m1">
+        <div class = "newstext">
+            <h4>Sign Up to get weekly newletter!</h4>
+            <p>Get E-mail updates about out <span>latest updates</span></p>
+        </div>
+        <div class = "form">
+            <form action="/subscribe_user" method = "POST" class="signup-form">
+                <input type="email" name="email" placeholder= "Your email address">
+                <button class= "normal">Sign Up</button>
+            </form>
+        </div>
+    </section>
+    <section id = "newsletter" class = "section-p1 section-m1">
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <!-- <div class="flash-{{ message[1] }}">{{ message[0] }}</div> -->
+                        <div class="alert alert-{{ category }} textalert"><b>{{ message }}</b></div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </section>
+
+    <footer class = "section-p1">
+        <div class="col">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> plot-1368 Nizampet Road, Hyderabad</p>
+            <p><strong>Phone:</strong> (+91) 4856 865 866 </p>
+            <p><strong>Hours:</strong> 10:00 - 16:00 (Mon - Fri)</p>
+        </div>
+    
+        <div class = "follow">
+            <h4>Follow Us</h4>
+            <div class = "icon">
+                <i class = "fab fa-facebook-f"></i>
+                <i class = "fab fa-twitter"></i>
+                <i class = "fab fa-instagram"></i>
+                <i class = "fab fa-pinterest-p"></i>
+                <i class = "fab fa-youtube"></i>
+            </div>
+        </div>
+
+        <div class="col install">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
+</body>
+</html>

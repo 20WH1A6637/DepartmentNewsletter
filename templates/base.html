@@ -1,0 +1,68 @@
+<html>
+    <head>
+      <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <title>Authentication</title>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- <link rel="stylesheet" href="static/style.css"> -->
+      <style>
+        /* Custom styles */
+        body {
+          background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("/static/img/background_1.png");
+          background-size: cover;
+          background-repeat: no-repeat;
+          /* background-color: #f8f9fa; */
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .links{
+          color:darkblue;
+        }
+        .links:hover{
+          color: darkmagenta;
+          font-weight: 500;
+        }
+        .fixed-container {
+          width: 600px;
+        }
+        .jumbotron {
+          background-color:whitesmoke;
+          /* background-color: #fff; */
+          border-radius: 40px;
+          padding: 40px;
+          /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+          box-shadow: 10px 10px 10px #000;
+        }
+        .form-group label {
+          font-weight: bold;
+        }
+        .btn-primary {
+          background-color: darkmagenta;
+          border-color: darkmagenta;
+          color: gold;
+        }
+        .btn-primary:hover {
+          background-color:darkblue;
+          border-color: darkblue;
+          color: wheat;
+        }
+        .footer {
+          margin-top: 20px;
+          text-align: center;
+          color: #777;
+        }
+      </style>
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
