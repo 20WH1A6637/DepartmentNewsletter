@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="static/style.css">
     <link rel="text/stylesheet" src="script.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-o4s951r8V9H59ZymtIWvvt51JdZxhu2b+se8UPaRz2YgMjodR+FLPnkpjNj2tRA+9u0cAl4crzpxaQ06CLpp/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <section id = "header">
@@ -22,6 +23,13 @@
                     <li><a href = "{{ url_for('events') }}">Events</a></li>
                     <li><a href = "{{ url_for('placement') }}" class = "active">Placement Info</a></li>
                     <li><a href = "{{ url_for('weekly_update') }}">Weekly Updates</a></li>
+                    <li>{% if 'email' in session %}
+                        <span style="text-decoration: none; font-size: 16px; font-weight: 600; color: aliceblue; transition: 0.3s ease;">
+                          {{ session['email'][:10] }}
+                        </span>
+                        <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+                      {% endif %}
+                    </li>
                 </ul>
             </div>
     </section>
