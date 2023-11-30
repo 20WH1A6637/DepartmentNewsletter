@@ -57,6 +57,91 @@
           text-align: center;
           color: #777;
         }
+        /* Existing styles */
+
+        /* Additional styles for animations */
+        /* Example: Fade-in animation for the form */
+        .fade-in {
+          animation: fadeInAnimation 1s ease-in-out forwards; /* Use "forwards" to keep styles after animation */
+          opacity: 0;
+        }
+
+        @keyframes fadeInAnimation {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* Adjusting opacity for specific elements */
+        .fade-in input,
+        .fade-in label,
+        .fade-in button {
+          opacity: 1; /* Ensuring these elements are fully visible */
+        }
+        .links {
+          transition: color 0.7s ease-in-out; /* Smooth color transition */
+        }
+        .links:hover {
+          color: darkmagenta;
+          font-weight: 500;
+          transform: scale(3.1); /* Scale effect on hover */
+        }
+        /* Example: Animation when input is focused */
+        .form-control:focus,
+        .form-control:hover {
+          border-color: darkmagenta;
+          box-shadow: 0 0 5px darkmagenta;
+          transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        /* Example: Button hover animation */
+        .btn-primary {
+          transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+          background-color: darkblue;
+          border-color: darkblue;
+          color: wheat;
+          transform: translateY(-3px); /* Move the button slightly on hover */
+        }
+        /* Example: Animation for form entry */
+        /* Example: Enhanced Animation for form entry */
+        .form-group {
+          opacity: 0;
+          transform: translateY(20px);
+          animation: formEntryAnimation 0.5s ease-in-out forwards;
+        }
+
+        @keyframes formEntryAnimation {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Additional fade-in effect within the animation */
+        @keyframes fadeInOpacity {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        /* Apply fade-in effect to elements */
+        .form-group label,
+        .form-group input,
+        .form-group button {
+          animation: fadeInOpacity 0.5s ease-in-out forwards;
+        }
+
       </style>
     </head>
     <body>
