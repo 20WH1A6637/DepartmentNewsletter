@@ -86,7 +86,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
+    padding: 20px 20px;
     background-color: darkblue;
     box-shadow: 0 5px 15px rgba(39, 114, 12, 0.06);
     z-index: 999;
@@ -96,8 +96,8 @@ body {
 }
 
 #header .logo{
-    height: 50;
-    width: 50;
+    height: 40;
+    width: 40;
 }
 
 
@@ -109,7 +109,7 @@ body {
 
 #navbar li{
     list-style: none;
-    padding:  0 12px;
+    padding:  0 15px;
     position: relative;
 }
 
@@ -157,13 +157,32 @@ body {
     overflow: auto;
     overflow-y: scroll;
 }
+#hero::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar on the Y-axis */
+}
+
+/* Hide the horizontal scrollbar */
+#hero::-webkit-scrollbar-thumb {
+    display: none; /* Hide the scrollbar thumb */
+}
 
 #hero .container{
     height: 100%;
-    width: 100%;
+    width: calc(100% - 40px);
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
+
+/* Hide the vertical scrollbar */
+#hero .container::-webkit-scrollbar {
+    width: 0; /* Hide scrollbar on the Y-axis */
+}
+
+/* Hide the horizontal scrollbar */
+#hero .container::-webkit-scrollbar-thumb {
+    display: none; /* Hide the scrollbar thumb */
+}
+
 
 #hero h4{
     padding-bottom: 15px;
@@ -215,10 +234,11 @@ body {
     background: repeat-y;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px;
+    width: calc(50% - 40px);
     float: left;
     width: 100%; /* Adjust the width as needed for your layout */
     box-sizing: border-box;
@@ -239,6 +259,46 @@ body {
     padding: 10px;
     font-size: 20px;
 }
+
+
+
+
+
+/* Define the animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to an element */
+.fade-in-element {
+    animation: fadeIn 1s ease-in-out; /* Change duration and timing function as needed */
+}
+
+/* Define transition properties */
+.content-container {
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Apply hover effect with transition */
+.content-container:hover {
+    transform: scale(1.05); /* Scale the element on hover */
+    opacity: 0.9; /* Change opacity on hover */
+    border-radius: 20px;
+    background-color: cornsilk;
+    border-color: darkblue;
+    border-width: 10px;
+    border-style:ridge;
+}
+
+
+
+
+
 
 /* Clear the float to prevent layout issues */
 .clear {
@@ -283,7 +343,7 @@ body {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 3px;
 }
 
@@ -328,6 +388,51 @@ body {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to the forms */
+#content-form,
+#content-form1 {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Example: Animation when input is focused */
+#content-form input:focus,
+#content-form select:focus,
+#content-form textarea:focus,
+#content-form input:hover,
+#content-form select:hover,
+#content-form textarea:hover {
+    border-color: darkmagenta;
+    border-width: 1px; /* Define border width */
+    border-style: solid; /* Use a solid border style */
+    box-shadow: 0 0 5px darkmagenta;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Button hover effect with transition */
+button.normal,
+#newsletter button {
+    transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+}
+
+button.normal:hover,
+#newsletter button:hover {
+    background-color: gold;
+    color: darkblue;
+    border-radius: 8px;
+    /* Add any additional styles or effects for hover here */
 }
 
 .poster {
@@ -461,5 +566,3 @@ footer .copyright{
     width: 100%;
     text-align: center;
 }
-
-
