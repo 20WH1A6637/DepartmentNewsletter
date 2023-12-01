@@ -113,6 +113,11 @@ def index():
     if (request.method == 'POST'):
             email = request.form['name']
             password = request.form['password']
+
+            if not email or not password:
+                unsuccessful = 'Please provide both email and password'
+                return render_template('index.html', umessage=unsuccessful)
+                
             try:
                 user = auth.sign_in_with_email_and_password(email, password)
                 
