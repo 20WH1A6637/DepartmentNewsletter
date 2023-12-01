@@ -114,7 +114,7 @@ def index():
             email = request.form['name']
             password = request.form['password']
             try:
-                # user = auth.sign_in_with_email_and_password(email, password)
+                user = auth.sign_in_with_email_and_password(email, password)
                 
                 # user_id = auth.get_account_info(user['idToken'])
                 # session['usr'] = user_id
